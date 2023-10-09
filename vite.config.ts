@@ -11,7 +11,7 @@ export default defineConfig(configEnv => ({
     tsConfigPaths(),
     linterPlugin({
       include: ['./src/**/*.{ts,tsx}'],
-      linters: [new EsLinter({ configEnv })],
+      linters: [],
     }),
     svgrPlugin(),
   ],

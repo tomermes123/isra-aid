@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import { ReactComponent as Logo } from './logo.svg'
-import './app.css'
+import { useState } from "react";
+import { ReactComponent as Logo } from "./logo.svg";
+import "./app.css";
 
-export function App () {
-  const [count, setCount] = useState(0)
+export function App() {
+  const [count, setCount] = useState(0);
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <Logo className='App-logo' title='logo' />
-        <p>Hello Vite + React!</p>
+    <div className="App">
+      <header className="App-header">
+        <Logo className="App-logo" title="logo" />
+        <p>Hello IsraAid!</p>
         <p>
-          <button type='button' onClick={() => setCount((count) => count + 1)}>
+          <button type="button" onClick={() => setCount((count) => count + 1)}>
             count is: {count}
           </button>
         </p>
@@ -20,24 +20,24 @@ export function App () {
         </p>
         <p>
           <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Learn React
           </a>
-          {' | '}
+          {" | "}
           <a
-            className='App-link'
-            href='https://vitejs.dev/guide/features.html'
-            target='_blank'
-            rel='noopener noreferrer'
+            className="App-link"
+            href="https://vitejs.dev/guide/features.html"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Vite Docs
           </a>
         </p>
       </header>
     </div>
-  )
+  );
 }
