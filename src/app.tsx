@@ -1,43 +1,23 @@
-import { useState } from 'react'
-import { ReactComponent as Logo } from './logo.svg'
-import './app.css'
+import styled from 'styled-components'
+import { TopMenu } from './components/TopMenu'
+import { HeroSection } from './components/HeroSection'
+import { ItemSection } from './components/ItemSection'
+
+const AppContainer = styled.div`
+  text-align: center;
+  background: linear-gradient(209deg, #EEF6FF -20.22%, #FFF 89.32%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
 export function App () {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <Logo className='App-logo' title='logo' />
-        <p>Hello IsraAid!</p>
-        <p>
-          <button type='button' onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className='App-link'
-            href='https://vitejs.dev/guide/features.html'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <AppContainer>
+      <TopMenu />
+      <HeroSection />
+      <ItemSection />
+    </AppContainer>
   )
 }
