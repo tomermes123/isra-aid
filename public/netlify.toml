@@ -1,5 +1,8 @@
 [[redirects]]
-https://isra-aid.org/* https://israel-aid.com/:splat 301!
+  from = "https://*.isra-aid.org/*"
+  to = "https://israel-aid.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/*"
