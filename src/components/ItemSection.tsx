@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Grid from './Grid'
 import { Card, Image, Title, Subtitle } from './Card'
 import { useState, useEffect } from 'react'
+import Fuse from 'fuse.js'
 
 const Section = styled.div`
   width: 100%;
@@ -116,10 +117,22 @@ async function fetchDataFromPublicSheet (): Promise<
 }
 
 export function ItemSection () {
+  const [search, setSearch] = useState('')
   const [items, setItems] = useState<any[]>([])
+  const [filteredItems, setFilteredItems] = useState<any[]>([])
   useEffect(() => {
     fetchDataFromPublicSheet().then((items) => setItems(items || []))
   }, [])
+
+  useEffect(() => {
+    if (search) {
+      const fuse = new Fuse(items, { keys: ['title', 'subtitle'] })
+      const result = fuse.search(search)
+      setFilteredItems(result.map((item: any) => item.item))
+    } else {
+      setFilteredItems(items)
+    }
+  }, [search, items])
 
   return (
     <Section>
@@ -136,10 +149,13 @@ export function ItemSection () {
             fill='black'
           />
         </SearchIcon>
-        <SearchInput placeholder='Search for a cause or organization' />
+        <SearchInput
+          placeholder='Search for a cause or organization'
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </SearchContainer>
       <Grid>
-        {items.map((item, index) => (
+        {filteredItems.map((item, index) => (
           <Card key={index}>
             <Image src={item.image} alt={item.title} />
             <Title>{item.title}</Title>
