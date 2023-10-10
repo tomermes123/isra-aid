@@ -10,7 +10,7 @@ const Footer = styled.div`
   justify-content: center;
   align-items: center;
   height: auto;
-  padding: 100px 20px;
+  padding: 100px 0;
   width: 100%;
   margin-top: 20px;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundFooter}) no-repeat center center/cover;
