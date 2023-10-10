@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { ReactComponent as LogoIcon } from 'src/logo.svg'
+import { ReactComponent as HamburgerIcon } from '../assets/hamburger.svg'
 
 interface TopMenuProps {
   scrolled: boolean;
@@ -25,7 +26,7 @@ const Logo = styled(LogoIcon)`
   height: auto;
 `
 
-const Links = styled.div`
+const Links = styled.div<{isOpen: boolean}>`
   display: flex;
   gap: 10px;
 
@@ -42,6 +43,28 @@ const Links = styled.div`
     &:hover {
       text-decoration: underline;
     }
+
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 49px;
+    right: ${props => props.isOpen ? '0' : '-100%'};
+    padding: 24px;
+    text-align: start;
+    flex-direction: column;
+    background: #fff;
+    height: 100vh;
+    transition: right .2s;
+  }
+`
+
+const Hamburger = styled(HamburgerIcon)`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    flex-shrink: 0;
   }
 `
 
@@ -53,6 +76,7 @@ const LogoWrapper = styled.div`
 
 export function TopMenu () {
   const [scrolled, setScrolled] = useState(false)
+  const [isOpen, toggle] = useState(false)
 
   const handleScroll = () => {
     const offset = window.scrollY
@@ -70,15 +94,20 @@ export function TopMenu () {
     }
   }, [])
 
+  const toggleMenu = () => {
+    toggle(!isOpen)
+  }
+
   return (
     <TopMenuContainer scrolled={scrolled}>
       <LogoWrapper>
         <Logo />
       </LogoWrapper>
-      <Links>
-        <a href='#how-it-works'>How it works?</a>
-        <a href='#about-us'>About Us</a>
-        <a href='#contact-us'>Contact Us</a>
+      <Hamburger onClick={toggleMenu} />
+      <Links isOpen={isOpen}>
+        <a onClick={toggleMenu} href='#how-it-works'>How it works?</a>
+        <a onClick={toggleMenu} href='#about-us'>About Us</a>
+        <a onClick={toggleMenu} href='#contact-us'>Contact Us</a>
       </Links>
     </TopMenuContainer>
   )
