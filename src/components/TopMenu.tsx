@@ -47,20 +47,26 @@ const Links = styled.div<{isOpen: boolean}>`
 
   }
 
+
   @media (max-width: 768px) {
-    position: absolute;
-    top: 100%;
-    left: ${props => props.isOpen ? '0' : '100%'};
-    padding: 15px;
-    text-align: start;
+    position: fixed; // changed from absolute to fixed
+    top: 0; // changed from 100% to 0
+    left: ${props => (props.isOpen ? '0' : '-100%')}; // changed from 100% to -100%
+    padding: 60px 20px 20px; // increased top padding
     flex-direction: column;
     background: #fff;
-    height: 100vh;
-    width: 100%;
-    transition: left .2s;
+    height: 100%;
+    width: 80%; // reduced width to 80%
+    transition: left 0.3s ease-in-out; // added ease-in-out transition
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); // added shadow for a better visual effect
 
     a {
-      text-align: start;
+      margin-bottom: 20px; // added bottom margin for spacing
+      font-size: 18px; // increased font size
+      color: #333; // changed color to a darker shade for better visibility
+      &:hover {
+        color: #007bffe3; // added hover color change
+      }
     }
   }
 `
@@ -119,9 +125,15 @@ export function TopMenu () {
       </LogoWrapper>
       <Hamburger onClick={toggleMenu} />
       <Links isOpen={isOpen}>
-        <a onClick={toggleMenu} href='#how-it-works'>How it works?</a>
-        <a onClick={toggleMenu} href='#about-us'>About Us</a>
-        <a onClick={toggleMenu} href='#contact-us'>Contact Us</a>
+        <a onClick={toggleMenu} href='#how-it-works'>
+          How it works?
+        </a>
+        <a onClick={toggleMenu} href='#about-us'>
+          About Us
+        </a>
+        <a onClick={toggleMenu} href='#contact-us'>
+          Contact Us
+        </a>
       </Links>
     </TopMenuContainer>
   )
