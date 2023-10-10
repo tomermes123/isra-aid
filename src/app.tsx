@@ -21,3 +21,16 @@ export function App () {
     </AppContainer>
   )
 }
+
+export function App () {
+  const [count, setCount] = useState(0)
+
+  return (
+    <Router>
+      <Routes>
+        <Route path='/links/:linkId' element={<LinkDetail />} />
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </Router>
+  )
+}
