@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import backgroundFooter from '../assets/background-footer.png'
-import logo from '../assets/IsraAid.png'
+import logo from '../assets/IsraelAid.png'
 import facebookLogo from '../assets/facebook.svg'
 
 const Footer = styled.div`
@@ -66,14 +66,13 @@ const SocialIcon = styled.img`
 
 export function FooterSection () {
   return (
-    <Footer id='contact-us'>
+    <Footer id='footer'>
       <FooterContent>
-        <img src={logo} alt='IsraAid Logo' style={{ maxWidth: '100%', height: 'auto' }} />
+        <img src={logo} alt='IsraelAid Logo' style={{ maxWidth: '100%', height: 'auto' }} />
         <StyledText>
           Let’s make Israel
           <br /> stronger together
         </StyledText>
-        <StyledTextSmall>israaid71023@gmail.com</StyledTextSmall>
         <SocialIcon
           src={facebookLogo}
           alt='Facebook Logo'

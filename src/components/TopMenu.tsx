@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { ReactComponent as LogoIcon } from 'src/logo.svg'
+import { ReactComponent as LogoIcon } from 'src/assets/IsraelAid.svg'
 import { ReactComponent as HamburgerIcon } from '../assets/hamburger.svg'
 
 interface TopMenuProps {
@@ -23,7 +23,7 @@ const TopMenuContainer = styled.div<TopMenuProps>`
 `
 
 const Logo = styled(LogoIcon)`
-  width: 80px;
+  width: 90px;
   height: auto;
 `
 
