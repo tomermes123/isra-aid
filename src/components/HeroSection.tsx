@@ -7,6 +7,7 @@ const Hero = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 30px;
   padding-top: 150px; // Adjust this value as needed
 `
 
