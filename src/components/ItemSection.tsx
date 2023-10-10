@@ -39,6 +39,46 @@ const SearchInput = styled.input`
   }
 `;
 
+type CategoryItemProps = {
+  selected: boolean;
+};
+
+const CategoryMenu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+`;
+
+const CategoryItem = styled.div<CategoryItemProps>`
+  margin: 0 15px;
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+  }
+
+  &:hover::after {
+    background-color: lightgray;
+  }
+
+  ${({ selected }) =>
+    selected &&
+    `
+    &::after {
+      background-color: blue;
+    }
+  `}
+`;
+
 const PUBLIC_SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQPdI4qel6Otm_7quhDQ-xuTo9UzdkL8Rf0iLbmyVzJ67_TsdXwt_Qagn52ji4UiWslkU1MCnCPo2qV/pub?gid=0&single=true&output=csv";
 
@@ -116,23 +156,37 @@ async function fetchDataFromPublicSheet(): Promise<
   }
 }
 
+const DEFAULT_CATEGORY = "All";
+
 export function ItemSection() {
   const [search, setSearch] = useState("");
+  const [categories, setCategories] = useState([DEFAULT_CATEGORY]);
+  const [category, setCategory] = useState(DEFAULT_CATEGORY);
   const [items, setItems] = useState<any[]>([]);
   const [filteredItems, setFilteredItems] = useState<any[]>([]);
   useEffect(() => {
-    fetchDataFromPublicSheet().then((items) => setItems(items || []));
+    fetchDataFromPublicSheet().then((items) => {
+      setItems(items || []);
+      setCategories([
+        DEFAULT_CATEGORY,
+        ...[...new Set(items!.map((item: any) => item.category))],
+      ]);
+    });
   }, []);
 
   useEffect(() => {
+    const categoryItems =
+      category === DEFAULT_CATEGORY
+        ? items
+        : items.filter((item) => item.category === category);
     if (search) {
-      const fuse = new Fuse(items, { keys: ["title", "subtitle"] });
+      const fuse = new Fuse(categoryItems, { keys: ["title", "subtitle"] });
       const result = fuse.search(search);
       setFilteredItems(result.map((item: any) => item.item));
     } else {
-      setFilteredItems(items);
+      setFilteredItems(categoryItems);
     }
-  }, [search, items]);
+  }, [search, items, category]);
 
   return (
     <Section>
@@ -154,9 +208,23 @@ export function ItemSection() {
           onChange={(e: any) => setSearch(e.target.value)}
         />
       </SearchContainer>
+      <CategoryMenu>
+        {categories.map((cat) => (
+          <CategoryItem
+            key={cat}
+            onClick={() => setCategory(cat)}
+            selected={category === cat}
+          >
+            {cat}
+          </CategoryItem>
+        ))}
+      </CategoryMenu>
       <Grid>
         {filteredItems.map((item, index) => (
-          <Card key={index}>
+          <Card
+            key={index}
+            onClick={(e: any) => window.open(item.link, "_blank")}
+          >
             <Image src={item.image} alt={item.title} />
             <Title>{item.title}</Title>
             <Subtitle>{item.subtitle}</Subtitle>
