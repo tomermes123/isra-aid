@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { TopMenu } from "./components/TopMenu";
 import { HeroSection } from "./components/HeroSection";
 import { ItemSection } from "./components/ItemSection";
+import { HowItWorks } from "./components/HowItWorks";
 import { FooterSection } from "./components/FooterSection";
 
 const AppContainer = styled.div`
@@ -19,6 +20,7 @@ export function App() {
       <TopMenu />
       <HeroSection />
       <ItemSection />
+      <HowItWorks />
       <FooterSection />
     </AppContainer>
   );
