@@ -13,6 +13,9 @@ const Section = styled.section`
   text-align: center;
   max-width: 1200px;
   font-family: "Poppins", sans-serif;
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `
 
 const Title = styled.h2`
@@ -20,6 +23,10 @@ const Title = styled.h2`
   font-weight: 600;
   margin-bottom: 10px;
   font-family: "GRIFTER", sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `
 
 const Subtitle = styled.p`
@@ -39,8 +46,11 @@ const Team = styled.div`
 const Member = styled.div`
   margin: 20px;
 
-  @media (max-width: 768px) { // 768px is a common breakpoint for mobile devices
-    width: calc(100% - 40px); // On small screens, each member takes the full width
+  @media (max-width: 768px) {
+    // 768px is a common breakpoint for mobile devices
+    width: calc(
+      100% - 40px
+    ); // On small screens, each member takes the full width
   }
 `
 

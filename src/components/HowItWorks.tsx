@@ -27,6 +27,10 @@ const Heading = styled.h2`
   font-family: "GRIFTER", sans-serif;
   text-align: start;
   margin: 0px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `
 
 const Description = styled.p`
@@ -48,11 +52,12 @@ export const HowItWorks = memo(() => {
   return (
     <Container id='how-it-works'>
       <Information>
-        <Heading>
-          How it works?
-        </Heading>
+        <Heading>How it works?</Heading>
         <Description>
-          We only utilize <Bold>confirmed and reputable donation channels in Israel</Bold>, which are thoroughly vetted by our team. After that, we upload them here so you can easily click a link and donate.
+          We only utilize{' '}
+          <Bold>confirmed and reputable donation channels in Israel</Bold>,
+          which are thoroughly vetted by our team. After that, we upload them
+          here so you can easily click a link and donate.
         </Description>
       </Information>
       <Image />
