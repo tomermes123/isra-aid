@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { ReactComponent as IsraelIcon } from 'src/israel.svg'
+import styled from "styled-components";
+import { ReactComponent as IsraelIcon } from "src/israel.svg";
 
 const Hero = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ const Hero = styled.div`
   align-items: center;
   padding: 0 30px;
   padding-top: 150px; // Adjust this value as needed
-`
+`;
 
 const Text = styled.span`
   text-align: right;
@@ -23,7 +23,7 @@ const Text = styled.span`
   -webkit-text-fill-color: transparent;
   color: transparent;
   margin-bottom: 20px; // Added margin for spacing between the hero text and subtitle
-`
+`;
 
 const Subtitle = styled.div`
   color: rgba(0, 0, 0, 0.6);
@@ -36,7 +36,7 @@ const Subtitle = styled.div`
   max-width: 550px; // Optional: to control the width of the subtitle
   text-align: center;
   margin-top: 10px; // Added margin for spacing between the hero text and subtitle
-`
+`;
 
 const StyledIsraelIcon = styled(IsraelIcon)`
   width: 50px;
@@ -44,9 +44,9 @@ const StyledIsraelIcon = styled(IsraelIcon)`
   margin-left: 15px;
   position: relative;
   top: 10px;
-`
+`;
 
-export function HeroSection () {
+export function HeroSection() {
   return (
     <Hero>
       <div>
@@ -54,9 +54,8 @@ export function HeroSection () {
         <StyledIsraelIcon />
       </div>
       <Subtitle>
-        Donate to organizations aiding in the nation's defense and the
-        population, to contribute to a stronger future.
+        Donate to organizations aiding the population and the nation's defense
       </Subtitle>
     </Hero>
-  )
+  );
 }
