@@ -22,7 +22,8 @@ const Information = styled.div`
 `;
 
 const Heading = styled.h2`
-  font-size: 40px;
+  font-size: 36px;
+  font-weight: 600;
   text-align: start;
   margin: 0px;
 
@@ -33,15 +34,17 @@ const Heading = styled.h2`
 
 const Description = styled.p`
   color: rgba(0, 0, 0, 0.6);
-  font-size: 24px;
+  font-size: 22px;
   text-align: start;
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
+  margin: 10px auto;
 `;
 
 const Image = styled(HowItWorksImage)`
   max-width: 560px;
+`;
+
+const Bold = styled.span`
+  font-weight: 600;
 `;
 
 export const HowItWorks = memo(() => {
@@ -51,7 +54,7 @@ export const HowItWorks = memo(() => {
         <Heading>How it works?</Heading>
         <Description>
           We only utilize{" "}
-          <strong>confirmed and reputable donation channels in Israel</strong>,
+          <Bold>confirmed and reputable donation channels in Israel</Bold>,
           which are thoroughly vetted by our team. After that, we upload them
           here so you can easily click a link and donate.
         </Description>

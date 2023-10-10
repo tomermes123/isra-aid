@@ -7,7 +7,9 @@ import wixLogo from "../assets/wix-logo.png";
 import ymLogo from "../assets/ym-logo.png";
 
 const Section = styled.section`
-  padding: 50px;
+  padding: 50px auto;
+  margin: 50px auto;
+  margin-top: 0;
   text-align: center;
   max-width: 1200px;
   font-family: "Poppins", sans-serif;
@@ -17,7 +19,8 @@ const Section = styled.section`
 `;
 
 const Title = styled.h2`
-  font-size: 40px;
+  font-size: 36px;
+  font-weight: 600;
   margin-bottom: 10px;
   @media (max-width: 768px) {
     font-size: 32px;
@@ -25,11 +28,11 @@ const Title = styled.h2`
 `;
 
 const Subtitle = styled.p`
-  font-size: 24px;
+  font-size: 20px;
+  margin: auto 30px;
   margin-bottom: 50px;
-  @media (max-width: 768px) {
-    font-size: 18px;
-  }
+  max-width: 900px;
+  color: rgba(0, 0, 0, 0.6);
 `;
 
 const Team = styled.div`
@@ -40,6 +43,13 @@ const Team = styled.div`
 
 const Member = styled.div`
   margin: 20px;
+
+  @media (max-width: 768px) {
+    // 768px is a common breakpoint for mobile devices
+    width: calc(
+      100% - 40px
+    ); // On small screens, each member takes the full width
+  }
 `;
 
 const Image = styled.img`
@@ -52,7 +62,8 @@ const Image = styled.img`
 
 const Name = styled.h3`
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 500;
   cursor: pointer;
 `;
 
@@ -61,12 +72,6 @@ const Logo = styled.img`
   height: 100px;
   object-fit: contain;
   cursor: pointer;
-`;
-
-const StyledLink = styled.a`
-  text-decoration: none;
-  color: inherit;
-  font-weight: normal;
 `;
 
 const teamMembers = [
