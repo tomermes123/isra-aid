@@ -72,6 +72,7 @@ const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `
 
 export function TopMenu () {
@@ -98,9 +99,16 @@ export function TopMenu () {
     toggle(!isOpen)
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <TopMenuContainer scrolled={scrolled}>
-      <LogoWrapper>
+      <LogoWrapper onClick={scrollToTop}>
         <Logo />
       </LogoWrapper>
       <Hamburger onClick={toggleMenu} />
