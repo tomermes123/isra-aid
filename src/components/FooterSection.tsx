@@ -1,8 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import footerBackground from "../assets/footer-background.png";
+import React from 'react'
+import styled from 'styled-components'
+import backgroundFooter from '../assets/background-footer.png'
+import logo from '../assets/IsraAid.png'
+import facebookLogo from '../assets/facebook.svg'
 import logo from "../assets/IsraAid.svg";
-import facebookLogo from "../assets/facebook.svg";
+
 
 const Footer = styled.div`
   position: relative;
@@ -12,7 +14,7 @@ const Footer = styled.div`
   height: 798px;
   width: 100%;
   margin-top: 20px;
-`;
+`
 
 const Background = styled.img`
   position: absolute;
@@ -21,7 +23,7 @@ const Background = styled.img`
   width: 100%;
   object-fit: cover;
   background: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0));
-`;
+`
 
 const Gradient = styled.div`
   position: absolute;
@@ -33,7 +35,7 @@ const Gradient = styled.div`
 
 const FooterContent = styled.div`
   z-index: 1;
-`;
+`
 
 const StyledText = styled.div`
   font-family: "Poppins", sans-serif;
@@ -62,12 +64,12 @@ const StyledTextSmall = styled.div`
 
 const SocialIcon = styled.img`
   cursor: pointer;
-`;
+`
 
-export function FooterSection() {
+export function FooterSection () {
   return (
-    <Footer id="contact-us">
-      <Background src={footerBackground} alt="background" />
+    <Footer id='contact-us'>
+      <Background src={backgroundFooter} alt='background' />
       <Gradient />
       <FooterContent>
         <img src={logo} />
@@ -80,12 +82,11 @@ export function FooterSection() {
           src={facebookLogo}
           onClick={(e: any) =>
             window.open(
-              "https://www.facebook.com/groups/308278374859148",
-              "_blank"
-            )
-          }
+              'https://www.facebook.com/groups/308278374859148',
+              '_blank',
+            )}
         />
       </FooterContent>
     </Footer>
-  );
+  )
 }
