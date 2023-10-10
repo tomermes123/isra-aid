@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import backgroundFooter from '../assets/background-footer.png'
 import logo from '../assets/IsraAid.png'
 import facebookLogo from '../assets/facebook.svg'
+import logo from "../assets/IsraAid.svg";
+
 
 const Footer = styled.div`
   position: relative;
@@ -28,8 +30,8 @@ const Gradient = styled.div`
   top: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0));
-`
+  background: linear-gradient(rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0));
+`;
 
 const FooterContent = styled.div`
   z-index: 1;
@@ -43,7 +45,10 @@ const StyledText = styled.div`
   text-align: center;
   color: white;
   text-transform: uppercase;
-`
+  @media (max-width: 768px) {
+    font-size: 48px;
+  }
+`;
 
 const StyledTextSmall = styled.div`
   font-family: "Poppins", sans-serif;
@@ -52,7 +57,10 @@ const StyledTextSmall = styled.div`
   line-height: 73.92px;
   text-align: center;
   color: white;
-`
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+`;
 
 const SocialIcon = styled.img`
   cursor: pointer;
