@@ -60,7 +60,7 @@ const SocialIcon = styled.img`
 
 export function FooterSection() {
   return (
-    <Footer>
+    <Footer id="contact-us">
       <Background src={footerBackground} alt="background" />
       <Gradient />
       <FooterContent>
