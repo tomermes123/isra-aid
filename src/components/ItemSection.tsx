@@ -156,7 +156,7 @@ export function ItemSection() {
       </SearchContainer>
       <Grid>
         {filteredItems.map((item, index) => (
-          <Card key={index}>
+          <Card key={index} onClick={(e) => window.open(item.link, "_blank")}>
             <Image src={item.image} alt={item.title} />
             <Title>{item.title}</Title>
             <Subtitle>{item.subtitle}</Subtitle>
