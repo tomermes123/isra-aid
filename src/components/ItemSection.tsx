@@ -11,7 +11,7 @@ const Section = styled.div`
 const SearchContainer = styled.div`
   display: flex;
   width: 360px;
-  margin: 35px auto;
+  margin: 50px auto;
   padding: 16px 24px;
   align-items: center;
   gap: 10px;
@@ -47,10 +47,33 @@ const Badge = styled.div`
   display: inline-block; // Keeps the badge from taking up the full width
   cursor: pointer; // Changes the cursor on hover
   transition: background-color 0.3s; // Smooth transition effect for hover state
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 10px; // Optional: to add some spacing from the edges
+  z-index: 1; // Optional: to ensure the badge appears above the image
 
   &:hover {
     background-color: #0056b3; // Darker shade for hover effect, adjust as desired
   }
+`
+
+const Placeholder = styled.div`
+  width: 100%;
+  height: 200px; // Same height as the Image component
+  background-color: #eee; // Or any other placeholder color or pattern
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const PlaceholderText = styled.span`
+  color: #999;
+  font-size: 18px;
+`
+
+const ImageContainer = styled.div`
+  position: relative;
 `
 
 type CategoryItemProps = {
@@ -61,8 +84,7 @@ const CategoryMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin-top: 60px;
 `
 
 const CategoryItem = styled.div<CategoryItemProps>`
@@ -240,13 +262,24 @@ export function ItemSection () {
             key={index}
             onClick={(e: any) => window.open(item.link, '_blank')}
           >
-            <Image src={item.image} alt={item.title} />
-            <CardContent>
+            <ImageContainer>
+              {item.image
+                ? (
+                  <Image src={item.image} alt={item.title} />
+                  )
+                : (
+                  <Placeholder>
+                    <PlaceholderText>No Image Available</PlaceholderText>
+                  </Placeholder>
+                  )}
               <Badge>{item.category}</Badge>
+            </ImageContainer>
+            <CardContent>
               <Title>{item.title}</Title>
               <Subtitle>{item.subtitle}</Subtitle>
             </CardContent>
           </Card>
+
         ))}
       </Grid>
     </Section>
