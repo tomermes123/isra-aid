@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import backgroundFooter from '../assets/background-footer.png'
-import logo from '../assets/IsraelAid.png'
+import logo from '../assets/IsraelAid-light.png'
 import facebookLogo from '../assets/facebook.svg'
 
 const Footer = styled.div`
@@ -23,12 +23,12 @@ const FooterContent = styled.div`
 
 const StyledText = styled.div`
   font-family: "Poppins", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 56px;
   line-height: 1.3;
   color: white;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   padding: 10px 0; // Added padding
 
   @media (max-width: 768px) {
@@ -46,7 +46,7 @@ const StyledTextSmall = styled.div`
   font-size: 20px;
   line-height: 1.3;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding: 10px 0; // Added padding
 
   @media (max-width: 768px) {
