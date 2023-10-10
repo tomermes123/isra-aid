@@ -24,6 +24,7 @@ const Information = styled.div`
 const Heading = styled.h2`
   font-size: 36px;
   font-weight: 600;
+  font-family: "GRIFTER", sans-serif;
   text-align: start;
   margin: 0px;
 `
@@ -32,7 +33,7 @@ const Description = styled.p`
   color: rgba(0, 0, 0, 0.6);
   font-size: 22px;
   text-align: start;
-  margin: 10px auto;
+  margin: 20px auto;
 `
 
 const Image = styled(HowItWorksImage)`

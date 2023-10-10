@@ -19,12 +19,13 @@ const Title = styled.h2`
   font-size: 36px;
   font-weight: 600;
   margin-bottom: 10px;
+  font-family: "GRIFTER", sans-serif;
 `
 
 const Subtitle = styled.p`
   font-size: 20px;
-  margin: auto 30px;
-  margin-bottom: 50px;
+  margin: 20px 30px;
+  margin-bottom: 30px;
   max-width: 900px;
   color: rgba(0, 0, 0, 0.6);
 `
@@ -49,6 +50,8 @@ const Image = styled.img`
   height: 150px;
   object-fit: cover;
   cursor: pointer;
+  border: 1px solid rgba(199, 199, 199, 1);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.05);
 `
 
 const Name = styled.h3`

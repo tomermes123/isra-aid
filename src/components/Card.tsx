@@ -26,6 +26,7 @@ const Image = styled.img`
 
 const Title = styled.h3`
   font-size: 24px;
+  font-family: "GRIFTER", sans-serif;
   margin: 10px 0px;
 `
 
