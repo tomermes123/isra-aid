@@ -5,6 +5,8 @@ const Card = styled.div`
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
+  margin: 0px 50px;
+  text-align: left;
 `;
 
 const Image = styled.img`

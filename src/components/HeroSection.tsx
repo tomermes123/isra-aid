@@ -50,8 +50,8 @@ export function HeroSection() {
         <Flag>🇮🇱</Flag>
       </div>
       <Subtitle>
-        Donate to organizations aiding in the nation's defense, to contribute to
-        a stronger future.
+        Donate to organizations aiding in the nation's defense and the
+        population, to contribute to a stronger future.
       </Subtitle>
     </Hero>
   );

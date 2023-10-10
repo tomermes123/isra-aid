@@ -38,6 +38,21 @@ const SearchInput = styled.input`
     text-align: center;
   }
 `;
+const Badge = styled.div`
+  background-color: #007bff; // Change this to your desired background color
+  color: #ffffff; // Change this to your desired text color
+  padding: 5px 10px; // Adjust padding as needed
+  border-radius: 30px; // Adjust for desired corner roundness
+  font-family: Arial, sans-serif; // Set the font you'd like
+  font-size: 14px; // Adjust font size as needed
+  display: inline-block; // Keeps the badge from taking up the full width
+  cursor: pointer; // Changes the cursor on hover
+  transition: background-color 0.3s; // Smooth transition effect for hover state
+
+  &:hover {
+    background-color: #0056b3; // Darker shade for hover effect, adjust as desired
+  }
+`;
 
 type CategoryItemProps = {
   selected: boolean;
@@ -226,6 +241,7 @@ export function ItemSection() {
             onClick={(e: any) => window.open(item.link, "_blank")}
           >
             <Image src={item.image} alt={item.title} />
+            <Badge>{item.category}</Badge>
             <Title>{item.title}</Title>
             <Subtitle>{item.subtitle}</Subtitle>
           </Card>
