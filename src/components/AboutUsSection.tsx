@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import bidurLogo from '../assets/bidur-logo.png'
 import maprixLogo from '../assets/maprix-logo.png'
@@ -85,7 +84,7 @@ const teamMembers = [
     nameLink: 'https://www.linkedin.com/in/mayron-dadush-7b84b1202/',
     logo: bidurLogo,
     logoLink:
-      'https://www.open.co.il/%D7%99%D7%A9%D7%A8%D7%90%D7%9C-%D7%91%D7%99%D7%93%D7%95%D7%A8',
+      'https://www.instagram.com/israel_bidur/',
   },
   {
     img: 'https://media.licdn.com/dms/image/D4D03AQHPUYVxoclksQ/profile-displayphoto-shrink_800_800/0/1674940325563?e=1702512000&v=beta&t=cFTpfgMqeTK_iQ1x9YoGQrekYpdmXcHLYbaK2ImCgwI',

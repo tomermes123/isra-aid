@@ -1,7 +1,7 @@
+import { useRef, useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Grid from './Grid'
 import { Card, CardContent, Image, Title, Subtitle } from './Card'
-import { useState, useEffect } from 'react'
 import Fuse from 'fuse.js'
 import { fetchDataFromPublicSheet } from '@/helpers/fetch-data'
 
@@ -143,15 +143,41 @@ const Spinner = styled.div`
   margin: 120px auto;
 `
 
+const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+`
+
+const PageButton = styled.button`
+  background-color: #fff;
+  color: #007bffe3;
+  border: 1px solid #007bffe3;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s;
+
+  &:hover, &.active {
+    background-color: #007bffe3;
+    color: #fff;
+  }
+`
+
 const DEFAULT_CATEGORY = 'All'
 
 export function ItemSection () {
+  const sectionRef = useRef<HTMLDivElement>(null) // Explicitly set the type of the ref
   const [search, setSearch] = useState('')
   const [categories, setCategories] = useState([DEFAULT_CATEGORY])
   const [category, setCategory] = useState(DEFAULT_CATEGORY)
   const [items, setItems] = useState<any[]>([])
   const [filteredItems, setFilteredItems] = useState<any[]>([])
   const [status, setStatus] = useState<'loading' | 'loaded'>('loading')
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 12 // Adjust as needed
 
   useEffect(() => {
     fetchDataFromPublicSheet().then((items) => {
@@ -176,10 +202,24 @@ export function ItemSection () {
     } else {
       setFilteredItems(categoryItems)
     }
+    setCurrentPage(1) // Reset to the first page when search or category changes
   }, [search, items, category])
 
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem)
+
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage)
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber)
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' }) // Scroll the grid into view when a page button is clicked
+    }
+  }
+
   return (
-    <Section>
+    <Section ref={sectionRef}>
       {status === 'loading' && <Spinner />}
       {status !== 'loading' && (
         <>
@@ -213,8 +253,8 @@ export function ItemSection () {
               </CategoryItem>
             ))}
           </CategoryMenu>
-          <Grid>
-            {filteredItems.map((item, index) => (
+          <Grid> {/* Attach the ref to the Grid component */}
+            {currentItems.map((item, index) => (
               <Card
                 key={index}
                 onClick={(e: any) => window.open(item.link, '_blank')}
@@ -238,6 +278,18 @@ export function ItemSection () {
               </Card>
             ))}
           </Grid>
+
+          <Pagination>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <PageButton
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                className={currentPage === index + 1 ? 'active' : ''}
+              >
+                {index + 1}
+              </PageButton>
+            ))}
+          </Pagination>
         </>
       )}
     </Section>
