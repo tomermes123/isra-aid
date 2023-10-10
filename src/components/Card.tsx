@@ -14,7 +14,7 @@ const Card = styled.div`
 
 const CardContent = styled.div`
   margin: 24px;
-  height: 600px;
+  height: 250px;
 `;
 
 const Image = styled.img`
