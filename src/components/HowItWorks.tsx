@@ -39,7 +39,7 @@ const Image = styled(HowItWorksImage)`
 
 export const HowItWorks = memo(() => {
   return (
-    <Container>
+    <Container id='how-it-works'>
       <Information>
         <Heading>
           How it works?

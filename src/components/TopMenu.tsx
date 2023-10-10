@@ -45,7 +45,7 @@ const Links = styled.div`
   }
 `
 
-export function TopMenu () {
+export function TopMenu() {
   const [scrolled, setScrolled] = useState(false)
 
   const handleScroll = () => {
@@ -68,9 +68,9 @@ export function TopMenu () {
     <TopMenuContainer scrolled={scrolled}>
       <Logo />
       <Links>
-        <a href='/about-us'>How it works?</a>
-        <a href='/about-us'>About Us</a>
-        <a href='/contact-us'>Contact Us</a>
+        <a href='#how-it-works'>How it works?</a>
+        <a href='#about-us'>About Us</a>
+        <a href='#contact-us'>Contact Us</a>
       </Links>
     </TopMenuContainer>
   )
