@@ -13,7 +13,7 @@ const TopMenuContainer = styled.div<TopMenuProps>`
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 10px 20px;
+  padding: 15px 20px;
   z-index: 1000;
   box-sizing: border-box;
   background-color: ${props => props.scrolled ? '#fff' : 'transparent'};
@@ -68,6 +68,7 @@ export function TopMenu () {
     <TopMenuContainer scrolled={scrolled}>
       <Logo />
       <Links>
+        <a href='/about-us'>How it works?</a>
         <a href='/about-us'>About Us</a>
         <a href='/contact-us'>Contact Us</a>
       </Links>

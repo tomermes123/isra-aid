@@ -9,6 +9,7 @@ const Card = styled.div`
   text-align: left;
   border: 1px solid #e6e6e6;
   box-shadow: 0px 0px 40px 0px #0000000d;
+  background-color: #fff;
 `
 
 const CardContent = styled.div`
@@ -33,7 +34,7 @@ const Subtitle = styled.p`
   color: #666;
   margin: 10px 0px;
   display: -webkit-box;
-  -webkit-line-clamp: 5; lines
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

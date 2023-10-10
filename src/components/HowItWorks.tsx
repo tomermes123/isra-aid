@@ -6,7 +6,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 100px 20px;
   max-width: 1400px;
   gap: 60px;
 
