@@ -44,8 +44,9 @@ const SearchInput = styled.input`
   }
 `
 const Badge = styled.div`
-  background-color: #007bff; // Change this to your desired background color
+  background-color: #007bffe3; // Change this to your desired background color
   color: #ffffff; // Change this to your desired text color
+  font-weight: bold;
   padding: 5px 10px; // Adjust padding as needed
   border-radius: 30px; // Adjust for desired corner roundness
   font-family: Arial, sans-serif; // Set the font you'd like
@@ -54,8 +55,8 @@ const Badge = styled.div`
   cursor: pointer; // Changes the cursor on hover
   transition: background-color 0.3s; // Smooth transition effect for hover state
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 10px;
+  left: 0px;
   margin: 10px; // Optional: to add some spacing from the edges
   z-index: 1; // Optional: to ensure the badge appears above the image
 
