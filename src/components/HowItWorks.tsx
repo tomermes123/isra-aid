@@ -1,6 +1,6 @@
-import { memo } from 'react'
-import styled from 'styled-components'
-import { ReactComponent as HowItWorksImage } from '../assets/how-it-works.svg'
+import { memo } from "react";
+import styled from "styled-components";
+import { ReactComponent as HowItWorksImage } from "../assets/how-it-works.svg";
 
 const Container = styled.div`
   display: flex;
@@ -14,41 +14,49 @@ const Container = styled.div`
     flex-direction: column;
     gap: 0px;
   }
-`
+`;
 
 const Information = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;
 
 const Heading = styled.h2`
   font-size: 40px;
   text-align: start;
   margin: 0px;
-`
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
+`;
 
 const Description = styled.p`
-  color: rgba(0, 0, 0, 0.60);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 24px;
   text-align: start;
-`
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+`;
 
 const Image = styled(HowItWorksImage)`
   max-width: 560px;
-`
+`;
 
 export const HowItWorks = memo(() => {
   return (
-    <Container id='how-it-works'>
+    <Container id="how-it-works">
       <Information>
-        <Heading>
-          How it works?
-        </Heading>
+        <Heading>How it works?</Heading>
         <Description>
-          We only utilize <strong>confirmed and reputable donation channels in Israel</strong>, which are thoroughly vetted by our team. After that, we upload them here so you can easily click a link and donate.
+          We only utilize{" "}
+          <strong>confirmed and reputable donation channels in Israel</strong>,
+          which are thoroughly vetted by our team. After that, we upload them
+          here so you can easily click a link and donate.
         </Description>
       </Information>
       <Image />
     </Container>
-  )
-})
+  );
+});

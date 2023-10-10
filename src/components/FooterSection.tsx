@@ -28,7 +28,7 @@ const Gradient = styled.div`
   top: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0));
+  background: linear-gradient(rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0));
 `;
 
 const FooterContent = styled.div`
@@ -43,6 +43,9 @@ const StyledText = styled.div`
   text-align: center;
   color: white;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 48px;
+  }
 `;
 
 const StyledTextSmall = styled.div`
@@ -52,6 +55,9 @@ const StyledTextSmall = styled.div`
   line-height: 73.92px;
   text-align: center;
   color: white;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const SocialIcon = styled.img`
