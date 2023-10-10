@@ -8,6 +8,7 @@ interface TopMenuProps {
 }
 
 const TopMenuContainer = styled.div<TopMenuProps>`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,14 +49,19 @@ const Links = styled.div<{isOpen: boolean}>`
 
   @media (max-width: 768px) {
     position: absolute;
-    top: 49px;
-    right: ${props => props.isOpen ? '0' : '-100%'};
-    padding: 24px;
+    top: 100%;
+    left: ${props => props.isOpen ? '0' : '100%'};
+    padding: 15px;
     text-align: start;
     flex-direction: column;
     background: #fff;
     height: 100vh;
-    transition: right .2s;
+    width: 100%;
+    transition: left .2s;
+
+    a {
+      text-align: start;
+    }
   }
 `
 
