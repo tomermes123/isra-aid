@@ -10,10 +10,10 @@ const Footer = styled.div`
   justify-content: center;
   align-items: center;
   height: auto;
-  padding: 100px 0;
+  padding: 140px 0;
   width: 100%;
   margin-top: 20px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundFooter}) no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${backgroundFooter}) no-repeat center center/cover;
 `
 
 const FooterContent = styled.div`
@@ -73,6 +73,7 @@ export function FooterSection () {
           Let’s make Israel
           <br /> stronger together
         </StyledText>
+        <StyledTextSmall>israaid71023@gmail.com</StyledTextSmall>
         <SocialIcon
           src={facebookLogo}
           alt='Facebook Logo'
