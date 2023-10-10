@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { ReactComponent as LogoIcon } from 'src/logo.svg'
-import { ReactComponent as IsraelIcon } from 'src/israel.svg'
 
 interface TopMenuProps {
   scrolled: boolean;
@@ -45,12 +44,6 @@ const Links = styled.div`
     }
   }
 `
-const StyledIsraelIcon = styled(IsraelIcon)`
-  width: 30px;
-  height: auto;
-  position: relative;
-  margin-right: 10px;
-`
 
 const LogoWrapper = styled.div`
   display: flex;
@@ -80,7 +73,6 @@ export function TopMenu () {
   return (
     <TopMenuContainer scrolled={scrolled}>
       <LogoWrapper>
-        <StyledIsraelIcon />
         <Logo />
       </LogoWrapper>
       <Links>

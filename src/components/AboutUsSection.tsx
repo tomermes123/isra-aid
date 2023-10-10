@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import bidurLogo from '../assets/bidur-logo.png'
-import maprintLogo from '../assets/maprint-logo.png'
+import maprixLogo from '../assets/maprix-logo.png'
 import cyeraLogo from '../assets/cyera-logo.png'
 import wixLogo from '../assets/wix-logo.png'
 import ymLogo from '../assets/ym-logo.png'
@@ -60,7 +60,7 @@ const teamMembers = [
   {
     img: 'https://media.licdn.com/dms/image/D4D03AQHPUYVxoclksQ/profile-displayphoto-shrink_800_800/0/1674940325563?e=1702512000&v=beta&t=cFTpfgMqeTK_iQ1x9YoGQrekYpdmXcHLYbaK2ImCgwI',
     name: 'Guy Mesika',
-    logo: maprintLogo,
+    logo: maprixLogo,
   },
   {
     img: 'https://media.licdn.com/dms/image/C4D03AQHydpRTrf6wuw/profile-displayphoto-shrink_800_800/0/1648556281059?e=1702512000&v=beta&t=uu-W4a9X5PoSeZadKCzToEtfauvLHlpZKkp0eCbKX5A',
