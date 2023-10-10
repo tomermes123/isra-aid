@@ -8,7 +8,8 @@ const Card = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
   border-bottom: 1px solid #ccc;
 `
 
