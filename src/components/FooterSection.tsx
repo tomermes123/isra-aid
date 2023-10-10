@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import footerBackground from "../assets/footer-background.png";
-import logo from "../assets/IsraAid.png";
+import logo from "../assets/IsraAid.svg";
 import facebookLogo from "../assets/facebook.svg";
 
 const Footer = styled.div`
