@@ -1,13 +1,7 @@
-# Existing rule for all hostnames
+[[redirects]]
+https://isra-aid.org/* https://israel-aid.com/:splat 301!
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-# New rule for a specific hostname
-[[redirects]]
-  from = "/*"
-  to = "https://example.com/:splat"
-  status = 301
-  force = true
-  conditions = {Host = ["isra-aid.org"]}
