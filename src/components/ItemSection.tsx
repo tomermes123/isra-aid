@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Grid from "./Grid";
-import { Card, Image, Title, Subtitle } from "./Card";
+import { Card, CardContent, Image, Title, Subtitle } from "./Card";
 import { useState, useEffect } from "react";
 import Fuse from "fuse.js";
 
@@ -36,6 +36,21 @@ const SearchInput = styled.input`
   color: rgba(0, 0, 0, 0.8);
   ::placeholder {
     text-align: center;
+  }
+`;
+const Badge = styled.div`
+  background-color: #007bff; // Change this to your desired background color
+  color: #ffffff; // Change this to your desired text color
+  padding: 5px 10px; // Adjust padding as needed
+  border-radius: 30px; // Adjust for desired corner roundness
+  font-family: Arial, sans-serif; // Set the font you'd like
+  font-size: 14px; // Adjust font size as needed
+  display: inline-block; // Keeps the badge from taking up the full width
+  cursor: pointer; // Changes the cursor on hover
+  transition: background-color 0.3s; // Smooth transition effect for hover state
+
+  &:hover {
+    background-color: #0056b3; // Darker shade for hover effect, adjust as desired
   }
 `;
 
@@ -180,7 +195,11 @@ export function ItemSection() {
         ? items
         : items.filter((item) => item.category === category);
     if (search) {
-      const fuse = new Fuse(categoryItems, { keys: ["title", "subtitle"] });
+      const fuse = new Fuse(categoryItems, {
+        keys: ["title", "subtitle"],
+        isCaseSensitive: false,
+        threshold: 0.6,
+      });
       const result = fuse.search(search);
       setFilteredItems(result.map((item: any) => item.item));
     } else {
@@ -226,8 +245,11 @@ export function ItemSection() {
             onClick={(e: any) => window.open(item.link, "_blank")}
           >
             <Image src={item.image} alt={item.title} />
-            <Title>{item.title}</Title>
-            <Subtitle>{item.subtitle}</Subtitle>
+            <CardContent>
+              <Badge>{item.category}</Badge>
+              <Title>{item.title}</Title>
+              <Subtitle>{item.subtitle}</Subtitle>
+            </CardContent>
           </Card>
         ))}
       </Grid>
