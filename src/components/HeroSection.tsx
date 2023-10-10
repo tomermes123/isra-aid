@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { ReactComponent as IsraelIcon } from 'src/israel.svg'
 
@@ -36,7 +35,7 @@ const Subtitle = styled.div`
   line-height: 132%;
   max-width: 550px; // Optional: to control the width of the subtitle
   text-align: center;
-  margin-top: 0px; // Added margin for spacing between the hero text and subtitle
+  margin-top: 10px; // Added margin for spacing between the hero text and subtitle
 `
 
 const StyledIsraelIcon = styled(IsraelIcon)`
