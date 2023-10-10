@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Grid from "./Grid";
-import { Card, Image, Title, Subtitle } from "./Card";
+import { Card, CardContent, Image, Title, Subtitle } from "./Card";
 import { useState, useEffect } from "react";
 import Fuse from "fuse.js";
 
@@ -195,7 +195,11 @@ export function ItemSection() {
         ? items
         : items.filter((item) => item.category === category);
     if (search) {
-      const fuse = new Fuse(categoryItems, { keys: ["title", "subtitle"] });
+      const fuse = new Fuse(categoryItems, {
+        keys: ["title", "subtitle"],
+        isCaseSensitive: false,
+        threshold: 0.6,
+      });
       const result = fuse.search(search);
       setFilteredItems(result.map((item: any) => item.item));
     } else {
@@ -241,9 +245,11 @@ export function ItemSection() {
             onClick={(e: any) => window.open(item.link, "_blank")}
           >
             <Image src={item.image} alt={item.title} />
-            <Badge>{item.category}</Badge>
-            <Title>{item.title}</Title>
-            <Subtitle>{item.subtitle}</Subtitle>
+            <CardContent>
+              <Badge>{item.category}</Badge>
+              <Title>{item.title}</Title>
+              <Subtitle>{item.subtitle}</Subtitle>
+            </CardContent>
           </Card>
         ))}
       </Grid>
