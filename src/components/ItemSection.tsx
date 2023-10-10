@@ -279,17 +279,19 @@ export function ItemSection () {
             ))}
           </Grid>
 
-          <Pagination>
-            {Array.from({ length: totalPages }, (_, index) => (
-              <PageButton
-                key={index}
-                onClick={() => handlePageChange(index + 1)}
-                className={currentPage === index + 1 ? 'active' : ''}
-              >
-                {index + 1}
-              </PageButton>
-            ))}
-          </Pagination>
+          {totalPages > 1 && ( // Conditionally render Pagination based on totalPages
+            <Pagination>
+              {Array.from({ length: totalPages }, (_, index) => (
+                <PageButton
+                  key={index}
+                  onClick={() => handlePageChange(index + 1)}
+                  className={currentPage === index + 1 ? 'active' : ''}
+                >
+                  {index + 1}
+                </PageButton>
+              ))}
+            </Pagination>
+          )}
         </>
       )}
     </Section>
