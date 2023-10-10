@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { TopMenu } from './components/TopMenu'
 import { HeroSection } from './components/HeroSection'
 import { ItemSection } from './components/ItemSection'
+import { HowItWorks } from './components/HowItWorks'
 
 const AppContainer = styled.div`
   text-align: center;
@@ -12,12 +13,13 @@ const AppContainer = styled.div`
   justify-content: center;
 `
 
-export function App () {
+export function App() {
   return (
     <AppContainer>
       <TopMenu />
       <HeroSection />
       <ItemSection />
+      <HowItWorks />
     </AppContainer>
   )
 }
