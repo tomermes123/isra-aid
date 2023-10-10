@@ -39,10 +39,14 @@ const SearchInput = styled.input`
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   color: rgba(0, 0, 0, 0.8);
+  overflow: hidden; // Added to hide the overflowed content
+  text-overflow: ellipsis; // Added to indicate the clipped text with an ellipsis
+  white-space: nowrap; // Added to prevent the text from wrapping to the next line
   ::placeholder {
     text-align: center;
   }
 `
+
 const Badge = styled.div`
   background-color: #007bffe3; // Change this to your desired background color
   color: #ffffff; // Change this to your desired text color
